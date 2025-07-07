@@ -1,0 +1,201 @@
+# ================= { ITEM FORMAT } =================
+# <internal_name>:
+#   type: <item type>                                          # item's id (diamond_sword, iron_axe,..)               
+#   data: <item data>                                           # custom item data for 1.14+, item data for legacy
+#   display: <item name>                                     # Item's display, use & as color code
+#   rate: <rating>`                                               # see in attributes.yml > Ratings
+#   durability: '<current>/<max>'
+#   item-type: <type>
+#   stats:                                                               # see in attributes.yml > Stats
+#   - <stat>:<amount/range>
+#   ...
+#   Lore:                                                              # item's lore, use & as color code
+#   - <lore 1>
+#   - <lore 2>
+#   - <lore 3>
+#   ...
+#   enchants:                                                        # item's enchants
+#   - <enchantment>:<level>
+#   - <enchantment>:<level>
+#   ...
+#   flags:                                                              # item's flags
+#   - <flag>
+#   ...
+#   unbreak: <true/false>                                       # make item unbreakable
+#   gems: <amount/range>                                                # slot of gems
+#   buffs:                                                              # item buff, see in attributes.yml > Buff
+#   - <buff>:<level>
+#   ...
+#   color:                                                               #only affect on leather armor, wools,...
+#     red: <amount>
+#     green: <amount>
+#     blue: <amount>
+# ===================================================
+
+
+items:
+  z_sword:
+    type: 'IRON_SWORD'
+    display: '&aZ Sword'
+    data: 0
+    leveling: true
+    rate: 'rare'
+    item-type: 'sword'
+    durability: '1000'
+    lore:
+    - '&7Basic sword can be created'
+    - '&7Made by &eZanis'
+    - '&7It is such a &aSuperrrrr plugin!'
+    - '&7Found in &eSpigot!'
+    enchants:
+    - DAMAGE_ALL:3
+    - DURABILITY:10
+    - MENDING:1
+    flags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    stats:
+    - 'physic_damage:3~6'
+    - 'physic_defense:1'
+    unbreakable: true
+    gems: '1~3'
+  hermet_boots:
+    type: 'IRON_BOOTS'
+    data: 0
+    item-type: 'boots'
+    display: '&4&lHermet Boots'
+    durability: '450/500'
+    rate: 'rare'
+    lore:
+    - '&7Fast as &6The Flash!!'
+    stats:
+    - 'speed:30'
+    - 'physic_defense:1~2'
+    - 'magic_defense:0.5'
+    buffs:
+    - 'speed:2~3'
+    - 'resistance:1~5'
+    enchants:
+    - DURABILITY:10
+    unbreakable: true
+    gems: '1'
+  fire_great_sword:
+    type: DIAMOND_SWORD
+    data: 1
+    item-type: 'great-sword'
+    durability: '999/1000'
+    display: '&c&lFire Great Sword'
+    lore:
+    - '&cMythic sword can ignite enemy'
+    leveling: true
+    rate: 'epic'
+    enchants:
+    - FIRE_ASPECT:10
+    - DAMAGE_ALL:5
+    stats:
+    - 'enhance_chance:60~80'
+    - 'magic_damage:7~8'
+    - 'magic_penetration:9~10'
+    unbreakable: true
+    flags:
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    gems: '3~5'
+  double_axe:
+    type: DIAMOND_AXE
+    data: 1
+    item-type: 'axe'
+    display: '&7&lDouble Axe'
+    durability: '1000'
+    rate: 'common'
+    lore:
+    - '&7Weapon of the &eViking!'
+    - '&7Swing! Swing! swing...'
+    enchants:
+    - DAMAGE_ALL:5
+    - KNOCKBACK:3
+    stats:
+    - 'crit_chance:1~5'
+    - 'physic_damage:10~15'
+    - 'physic_defense:3~6'
+    unbreakable: true
+    flags:
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+  obsidian_hammer:
+    type: DIAMOND_AXE
+    data: 2
+    item-type: 'hammer'
+    durability: '10000'
+    display: '&5&lObsidian Hammer'
+    leveling: true
+    rate: 'rare'
+    stats:
+    - 'magic_defense:8~16'
+    - 'physic_defense:10~20'
+    lore:
+    - '&5The toughness tools!'
+    - '&7Harder than &bDiamond'
+    enchants:
+    - DAMAGE_ALL:4
+    unbreakable: true
+    flags:
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+  glow_ring:
+    type: GOLD_NUGGET
+    data: 1
+    item-type: 'ring'
+    display: '&eGlow Ring'
+    durability: '400'
+    stats:
+    - 'parry_chance:20~25'
+    lore:
+    - '&eHoly Spirit protect you!'
+    enchants:
+    - DURABILITY:3
+    flags:
+    - HIDE_ENCHANTS
+  thief_glove:
+    type: 'LEATHER'
+    data: 1
+    item-type: 'gauntlet'
+    durability: '300'
+    display: '&4Thief Gloves'
+    stats:
+    - 'crit_chance:10~15'
+    lore:
+    - '&4Increase your critical chance.'
+    - '&2Luck &7is also a skill!'
+  magic_pearl:
+    type: 'ENDER_PEARL'
+    data: 0
+    item-type: 'artifact'
+    display: '&3Magic Pearl'
+    stats:
+    - 'enhance_chance:30'
+    - 'magic_damage:3~5'
+    lore:
+    - '&3Wizard Blessing!'
+  warrior_belt:
+    type: 'IRON_INGOT'
+    data: 1
+    item-type: 'belt'
+    durability: '455'
+    display: '&fWarrior Belt'
+    stats:
+    - 'health:4'
+    - 'physic_damage:3~6'
+    lore:
+    - '&7Be forged by &6legendary &7warrior.'
+  greed_necklace:
+    type: 'GOLD_INGOT'
+    data: 1
+    item-type: 'necklace'
+    display: '&eGreedy Necklace'
+    durability: '500/1500'
+    stats:
+    - 'xp_boost:60~120'
+    lore:
+    - '&aEverythings will come to you!'

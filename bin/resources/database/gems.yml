@@ -1,0 +1,35 @@
+# ================= { GEM FORMAT } =================
+# <id>:
+#   type: <type>                                    # gem's type (DIAMOND, EMERALD,...)
+#   data: <data>                                     # custom item data for 1.14+, item data for legacy
+#   display: <name>                               # gem's display name, use & as color code
+#   stat: '<stat> <amount / range>'          # gem's stat, see in attributes.yml > Stats
+#   chance: '<amount / range>'                # chance to apply gem successfully
+#   lore:                                                  # item's lore
+#   - <lore 1>
+#   - <lore 2>
+#   - ...
+# ===================================================
+gems:
+  strength_gem:
+    type: EMERALD
+    data: 0
+    display: '&cStrength Gem'
+    stat: 'physic_damage:1~3'
+    chance: '30~50'
+    lore:
+    - '&7Powerful gem!'
+    glow: true
+    can_buy: true
+    cost: 5000
+  critical_gem:
+    type: DIAMOND
+    data: 0
+    display: '&4Critical Gem'
+    stat: 'crit_chance:2~6'
+    chance: '50~60'
+    lore:
+    - '&7Another powerful gem!'
+    glow: false
+    can_buy: true
+    cost: 6000

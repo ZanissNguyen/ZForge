@@ -1,0 +1,24 @@
+name: ZForge
+main: org.zanissnguyen.ZForge
+version: 1.0.0
+author: ZanisDev
+main: org.zanissnguyen.ZForge.ZForge
+description: Trade item as a RPG game, Powerful tool
+api-version: 1.14
+
+commands:
+  zlore:
+    description: edit item's lore
+  zname:
+    description: edit item's name
+  zflag:
+    description: edit item's flag
+  zench:
+    description: edit item's enchantment
+  zdata:
+    description: edit item's data
+  zattr:
+    description: edit item's attribute
+  forge:
+    description: using main supper mechanic
+    aliases: [zforge, forge, zf]

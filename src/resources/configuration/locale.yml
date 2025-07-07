@@ -1,0 +1,297 @@
+update-checker:
+  out-dated: '&6[<plugin_name>] &7There is a new update available.'
+  up-to-date: '&6[<plugin_name>] &7There is not a new update available.'
+catalogue:
+  general:
+  - '&3&m|---------&b&m==========&3&m---------|'
+  - '&bPlugin:&a <plugin_name>'
+  - '&bStatus:&a <status>'
+  - '&bVersion:&a <version>'
+  - '&3&m|---------&b&m==========&3&m---------|'
+  - '&bItems: &a<item_amount>'
+  - '&bMaterials: &a<material_amount>'
+  - '&bRecipes: &a<recipe_amount>'
+  - '&bGems: &a<gem_amount>'
+  - '&bCustom Style: &a<style_amount>'
+  - '&3&m|---------&b&m==========&3&m---------|'
+  status:
+    enable: '&aEnable'
+    disable: '&cDisable'
+console: '&c&lCONSOLE'
+reload: '&a<plugin_name> <version> reloaded complete.'
+symbol:
+  tick: '✔ '
+  cross: '✘ '  
+  range: '⇾'
+  multiple: 'x'
+  percent: '%'
+  positive: '&a'
+  negative: '&c'
+error:
+  only-player: '&4Only player can do this!'
+  not-number: '&c<n> &4 is not a number'
+  wrong-syntax: '&4Wrong syntax! Check for <cmd>'
+  no-permission: '&4You do not have permission to do that'
+  hand-nothing: '&4Your main hand is nothing!'
+  out-index: '&c<n> &4is out of indexes. &c<r>'
+  no-enchantment: '&c<e> &4is not an enchantment'
+  no-flag: '&c<f> &4is not a flag'
+  no-player: '&c<p> &4is not exist'
+  no-stat: '&c<s> &4is not a stat'
+  no-buff: '&c<b> &4is not a buff'
+  no-type: '&c<t> &4is not a item type'
+  no-rate: '&c<r> &4is not a item rate'
+  player-not-online: '&c<p> &4is not online'
+  not-money: '&4You do not have enough money.'
+  not-level: '&4Train more for higher experience, level!'
+  not-enough-material: '&4You do not have enough material(s). Go and find more!'
+  no-material: '&c<o> &4is not a material'
+  no-item: '&c<o> &4is not an item'
+  no-gem: '&c<o> &4is not a gem'
+  
+attribute:
+  prefix: '&6/ZATTR &f>>'
+  type: '&aSet item type to &e<t>&a.'
+  stat:
+    set: '&aSet &e<s> <n> &ato item.'
+    active:
+      crit: '&c[CRITICAL x <bonus>]'
+      parry: '&e[PARRY]'
+      parry_damage: '&f*<dmg>*'
+      block: '&b[BLOCK]'
+      dodge: '&b[DODGE]'
+      absorp: '&e[ABSORP]'
+      enhance: '&3[ENHANCE]'
+    on_cooldown: '&cYou are on cooldown.'
+  buff_set: '&aSet &e<b> <n> &ato item.'
+  level:
+    enable: '&aEnable item leveling.'
+    disable: '&cDisable item leveling.'
+    give_exp: '&aAdd &e<n> &aitems XP!'
+  rate_set: '&aSet item rate to <r>'
+  durability:
+    run-out: '&4Your <slot> is &crun out of durability&4! Repair or throw it away!'
+    break: '&4Your <slot> is &cbroken!'
+    set: '&aSet item max durability to &e<n>'
+  help:
+  - '&e/zattr durability &b<value>&7: set durability for item'
+  - '&e/zattr leveling &b[<value>]&7: toogle item leveling or add XP'
+  - '&e/zattr rate &b<rate>&7: set item rate'
+  - '&e/zattr type &b<item type>&7: set item type'
+  - '&e/zattr stat &b<stat> <value>&7: set item stat'
+  - '&e/zattr buff &b<buff> <level>&7: set item buff'
+  - '&e/zattr help&7: show this'
+lore:
+  prefix: '&6/ZLORE &f>> '
+  add: '&aAdd <s> &ato item'
+  insert: '&aInsert <s> &ato line &e<l>'
+  set: '&aSet lore in line &e<l> &ato <s>'
+  remove: '&eRemove lore in line &e<l>'
+  clear: '&aClear item lore'
+  help:
+  - '&e/zlore add &b<string>&7: add to the lastest line'
+  - '&e/zlore set &b<line> <string>&7: set specific line'
+  - '&e/zlore insert &b<line> <string>&7: insert into line'
+  - '&e/zlore remove &b<line>&7: remove a specific line'
+  - '&e/zlore clear&7: clear all item lore'
+  - '&e/zlore help&7: show this'
+name:
+  prefix: '&6/ZNAME &f>> '
+  set: '&aSet item name to <s>'
+  clear: '&aClear item name' 
+  help:
+  - '&e/zname set &b<string>&7: set name for item'
+  - '&e/zname clear&7: remove name of item'
+  - '&e/zname help&7: show this'
+ench:
+  prefix: '&6/ZENCH &f>> '
+  add: '&aAdd &e<e> &alevel &e<l> &ato item'
+  remove: '&aRemove &e<e> &afrom item'
+  clear: '&aClear item enchantments'
+  help:
+  - '&e/zench add &b<enchant> <level>&7: add an enchantment'
+  - '&e/zench remove &b<enchant>&7: remove a specific enchantment'
+  - '&e/zench clear&7: clear all enchantments of item'
+  - '&e/zench help&7: show this'
+flag:
+  prefix: '&6/ZFLAG &f>> '
+  add: '&aAdd flag &e<f> &ato item'
+  remove: '&aRemove flag &e<f> &afrom item'
+  clear: '&aClear item flags'
+  help:
+  - '&e/zflag add &b<flag>&7: set a flag on item'
+  - '&e/zflag remove &b<flag>&7: remove a flag'
+  - '&e/zflag clear&7: clear flags of item'
+  - '&e/zflag help&7: show this'
+data:
+  preefix: '&6/ZDATA &f>> '
+  set: '&aSet item custom data to &e<n>'
+  help:
+  - '&e/zdata &b<data>&7: set item model data'
+  - '&e/zdata help&7: show this'
+forge:
+  help:
+  - '&e/forge&7: open main menu'
+  - '&e/forge stat&7: open inventory and check stats'
+  - '&e/forge item &7: open item menu'
+  - '&e/forge material&7: open material menu'
+  - '&e/forge recipe&7: open recipe menu'
+  - '&e/forge repair&7: open repair menu'
+  - '&e/forge gem&7: open gem item'
+  balance:
+    name: '&e<player> Balance'
+    lore:
+    - '&7Money: &e<money>$'
+    - '&7Level: &a<level>LV'
+  search: '&aTyping for keyword... Type &cCancel &ato esc!'
+  back-icon:
+    name: '&aBack'
+    lore:
+    - '&fBack to last menu.'
+    - ''
+    - '&e[CLICK]'
+  craft-icon:
+    name: '&aCraft'
+    lore:
+    - ''
+    - '&e[CLICK]'
+  info-icon:
+    name: '&aRecipe Information'
+    lore:
+    - '  &7Level: <lvl>'
+    - '  &7Time: &e<time>s'
+    - ''
+    - '  <material_status>'
+    material-status:
+      enough: '&aEvery things are ready!'
+      not-enough: '&cGo and find more materials!'
+  search-icon:
+    name: '&aSearch'
+    lore:
+    - '&fSearch for <w>'
+    - '&fFind &e<n> &fobject(s)'
+    - ''
+    - '&e[CLICK]'
+  refresh-icon:
+    name: '&aRefresh'
+    lore:
+    - '&fReset search and go to page 1'
+    - ''
+    - '&e[CLICK]' 
+  next-icon:
+    name: '&aNext Page'
+    lore:
+    - '&fGo to next page'
+    - ''
+    - '&e[CLICK]'
+  previous-icon:
+    name: '&aPrevious Page'
+    lore:
+    - '&fGo to previous page'
+    - ''
+    - '&e[CLICK]'
+  list-tips:
+  - ''
+  - '&d[CLICK] to get.'
+  #- '&d[RIGHT CLICK] to edit'
+  repair:
+    prefix: '&6/FORGE REPAIR &f>>'
+    ui-name: '&2Forge &f| &6Repair '
+    icon:
+      no-damage: '&cItem does not need to be repaired'
+      usage: '&e<-- Place your item there'
+      repair-slot: '&aRepair Slot'
+      repair-all:
+        name: '&eRepair all damage'
+        lore:
+        - '&7Require'
+        - '<requirement>'
+        - ''
+        - '&d[CLICK TO REPAIR]'
+      repair:
+        name: '&eRepair damage'
+        lore:
+        - '&7You can repair &e<amount> &7damage'
+        - ''
+        - '&7Require'
+        - '<requirement>'
+        - ''
+        - '&d[CLICK TO REPAIR]'
+    message:
+      repair-all: '&aYour item is completely repaired.'
+      repair: '&aYour item is repaired'
+  stat:
+    ui-name: '&2<player> Inventory'
+    physic-name: '&7Physical Stats'
+    magic-name: '&3Magical Stats'
+    defense-name: '&7Defense Stats'
+    misc-name: '&5Misc Stats'
+    buff-name: '&bBuffs'
+    empty-slot: 
+      name: '&aEmpty Slot'
+      lore:
+      - '<type>'
+  item:
+    prefix: '&6/FORGE ITEM &f>> '
+    ui-name: '&2List &f| &6ITEM &f|'
+    save: '&aSave item in your hand as &e<id>'
+    give: '&aGive &e<id> &ato player &e<p>'
+    gain: '&aGain &e<id> &afrom &e<p>'
+    help:
+    - '&e/forge item&7: open items menu'
+    - '&e/forge item save &b<id>&7: save item in hand as id'
+    - '&e/forge item give/get &b<id> [<player>]&7: give player item'
+    - '&e/forge item help&7: show this'
+  gem:
+    prefix: '&6/FORGE GEM &f>> '
+    ui-name: '&2List &f| &6GEM &f|'
+    give: '&aGive &e<n> &aof &e<id> &ato player &e<p>'
+    gain: '&aGain &e<n> &aof &e<id> &afrom &e<p>'
+    failed: '&cUh.. oh...'
+    match: '&aGem match to item!'
+    remove: '&aGem have been removed!'
+    unlock: '&aA new slot has been drilled!'
+    smash: '&aGem is smashed into powder now!'
+    no-locked-slot: '&cThere is no locked slot in item.'
+    no-empty-slot: '&cThere is not empty gem slot in item.'
+    un-match: '&cGem is un-match to item!'
+    no-gem: '&cThere is no gem to remove!'
+    help:
+    - '&e/forge gem&7: open gems menu'
+    - '&e/forge gem give/get gem &b<id> [<player>]&7: give player gem'
+    - '&8/forge gem give/get &eremover &b[<player>] [<amount>]&7: give player remover'
+    - '&8/forge gem give/get &edriller &b[<player>] [<amount>]&7: give player remover'
+    - '&8/forge gem give/get &esmasher &b[<player>] [<amount>]&7: give player remover'
+    - '&8/forge gem give/get &epowder &b<chance> [<player>] [<amount>]&7: give player remover'
+    - '&e/forge gem help&7: show this'
+  material:
+    prefix: '&6/FORGE MATERIAL &f>> '
+    ui-name: '&2List &f| &6MATERIAL &f|'
+    save: '&aSave item in your hand as &e<id>'
+    give: '&aGive &e<n> &aof &e<id> &ato player &e<p>'
+    gain: '&aGain &e<n> &aof &e<id> &afrom &e<p>'
+    help:
+    - '&e/forge material&7: open materials menu'
+    - '&e/forge material save &b<id>&7: save item in hand as id'
+    - '&e/forge material give/get &b<id> [<player>] [<amount>]&7: give player material'
+    - '&e/forge material help&7: show this'
+  recipe:
+    prefix: '&6/FORGE RECIPE &f>>'
+    bought: '&fBought <item> &fblueprint.'
+    ui-name: '&2List &f| &6RECIPE &f|'
+    craft: 
+      ui-name: '&2Forge &f| &2Crafting'
+      prefix: '&6CRAFTING &f>>'
+      notice: '&aCrafting... &fMake sure you have space for <item> &fin &e<t>s'
+    tips:
+      blueprint-acquire:
+      - '' 
+      - '&d[CLICK] for more detail.'
+      blueprint-buy:
+      - ''
+      - '&8&o<blueprint>'
+      - '&e<cost>$'
+      - '&d[CLICK] to buy'
+      blueprint-not-buy:
+      - ''
+      - '&c[CAN NOT BUY YET]'

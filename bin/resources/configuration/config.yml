@@ -1,0 +1,139 @@
+config:
+  # amount of frame hologram display in one second. 
+  hologram_fps: 10
+  
+  # time hologram exist
+  hologram_duration: 1
+  
+  # send catalogue
+  catalogue: true
+  
+  # update checker 
+  update_check: true
+  
+  # vanilla damage
+  vanilla_damage: true
+  
+  # digit number
+  digit: 2
+  
+  # percent stat gain from offhand item (if they are not offhand type: shield, offhand)
+  offhand_modifier: 0.4
+  
+  # allow buff gain from offhand item (if they are not offhand type: shield, offhand)
+  offhand_buff: false
+  
+  # enable gain stat, buff from armor without equip (hold in mainhand or offhand)
+  unequip_armor: false
+  
+  # enable gain stat, buff from accessory withou equip (hold in mainhand or offhand]
+  unequip_accessory: false
+  
+  # item be broken when durability equal zero
+  item_break: true
+  
+  #buff stackable: allow buff stack by all item not using highest
+  buff_stackable: false
+  
+  # percent stat gain from broken item
+  broken_item_modifier: 0.0
+  
+  # cost require per durability repaired
+  repair:
+    money: 0.2
+    level: 0.02
+    material: 
+    - 'COAL:1'
+    
+  socket:
+    passive_unlock: 0.4
+    icon: '&aGems Slot(s):'
+    empty_slot: '&7♢ <Empty Gem Slot>'
+    locked_slot: '&8♦ <Locked Gem Slot>'
+    remover:
+      cost: 1000
+      display: '&6Gem Remover'
+      lore:
+      - '&7Used to remove gem'
+      - '<chance>'
+      - ''
+      - '&bDrag & drop to item!'
+      success_chance: 0.6
+    driller:
+      cost: 3000
+      display: '&6Socket Driller'
+      lore:
+      - '&7Used to unlock gem slot!'
+      - '<chance>'
+      - ''
+      - '&bDrag & drop to item!'
+      success_chance: 0.6
+    smasher:
+      cost: 8000
+      display: '&6Gem Smasher'
+      lore:
+      - '&7Used to destroy gem into powder'
+      - ''
+      - '&bDrag & drop to gem!'
+    powder:
+      ratio: 30
+      display: '&2Lucky Powder'
+      lore:
+      - '&7Used to increase gem compatible'
+      - '<chance>'
+      - ''
+      - '&bDrag & drop to gem!'
+            
+  combat:
+    # enable cooldown message
+    cooldown_msg: true
+    
+    # sound played on critical attack, block, parry,...
+    passive_sound: true 
+    
+    # bonus damage for range attack
+    bonus_range_damage: 1.2
+  
+    # percent damage block can prevent
+    block_power: 0.6
+    
+    # percent damage parry can prevent and counter
+    parry_power: 0.15
+    
+    # percent damage be converted in to gold heart after you take damage (HP)
+    absorp_power: 0.5
+    
+    # maximun dodge chance you can have
+    max_dodge: 0.8
+    
+    # maximun resistance percent you can have
+    max_resistance: 0.7
+    
+    # allow deal twice or more times critical if cirtical chance is over 100%
+    multiple_critical: true
+    
+    # normal critical damage of every player without bonus stat
+    base_critical_damage: 1.2
+    
+    # amount of Physic Defend and Magic Defend gain per 1 armor vanilla attribute. Just for PVE
+    vanilla_armor_convert: 1.0
+    
+    # amount of Physic Defend and Magic Defend gain per 1 armor toughness vanilla attribute. Just for PVE
+    vanilla_armor_toughness_convert: 2.0
+    
+    # amount of Physic Damage and Magic Damage mob gains per 1 general attack damage
+    vanilla_damage_convert: 1.0
+    
+    # player physic damage & defend decrease by 60%
+    mob_physic_resistance: 0.6
+    
+    # player magic damage & defend decrease by 40%
+    mob_magic_resistance: 0.4
+    
+  drop_exp:
+    player: 10
+    entity:
+      boss: 50
+      monster: 3
+      elite: 6
+      animal: 1

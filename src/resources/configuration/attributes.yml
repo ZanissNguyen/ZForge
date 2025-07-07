@@ -1,0 +1,162 @@
+# durability display
+durability: 'Durability'
+level: 'Level'
+
+stat:
+  #physic stat
+  physic_damage: 'Physic Damage'
+  physic_penetration: 'Physic Penetration' 
+  accurate: 'Accurate'
+  range_bonus: 'Range Bonus'
+  crit_chance: 'Crit Chance'
+  crit_damage: 'Crit Damage'
+  attack_speed: 'Attack Speed'
+  
+  # magic stat
+  magic_damage: 'Magic Damage'
+  magic_penetration: 'Magic Penetration'
+  enhance_chance: 'Enhance Attack'
+  
+  # defend
+  physic_defense: 'Physic Defense'
+  magic_defense: 'Magic Defense'
+  block_chance: 'Block'
+  parry_chance: 'Parry'
+  dodge_chance: 'Dodge'
+  resistance: 'Resistance'
+  absorp_chance: 'Absorp'
+  
+  # other bonus
+  speed: 'Speed'
+  health: 'Health'
+  heal: 'Heal'
+  xp_boost: 'XP Boost'
+  
+item-type:
+  material: 'Material'
+  great-sword: 'Great Sword'
+  sword: 'Sword'
+  axe: 'Axe'
+  hammer: 'Hammer'
+  mace: 'Mace'
+  lance: 'Lance'
+  spear: 'Spear'
+  bow: 'Bow'
+  crossbow: 'Crossbow'
+  helmet: 'Helmet'
+  chestplate: 'Chestplate'
+  leggings: 'Leggings'
+  boots: 'Boots'
+  shield: 'Shield'
+  ring: 'Ring'
+  necklace: 'Necklace'
+  belt: 'Belt'
+  gauntlet: 'Gauntlet'
+  artifact: 'Artifact'
+  mainhand: 'Main Hand'
+  offhand: 'Off Hand'
+  twohanded: 'Two-Handed'
+  
+buff:
+  #Buff Display
+  resistance: '&7Resistance'
+  fire_resistance: '&cFire Resistance'
+  absorption: '&eAbsoption'
+  strength: '&4Strength'
+  speed: '&3Speed'
+  night_vision: '&eNight Vision'
+  invisibility: '&fInvisibility'
+  water_breathing: '&3Water Breathing'
+  jump_boost: '&aJump Boost'
+  glowing: '&eGlowing'
+  health_boost: '&cHealth Boost'
+  saturation: '&fSaturation'
+  haste: '&eHaste'
+  regeneration: '&aRegeneration'
+  luck: '&2Luck'
+  
+# ================= { CUSTOM REQUIREMENT FORMAT } =================
+# <id>:
+#   placeholder: <placeholder>                # see in placeholderAPI wiki then download ecloud
+#   lore: <lore>                                       # which display in item's lore
+#   message: <message>                         # which display if user don't response requirement
+# ===================================================
+# Require a condition to use item
+
+requirement:
+  level: 
+    lore: '&c♦ &7Req-level:'
+    message: '&cYou need level <num> or higher to use this item!'
+  permission:
+    lore: '&c♦ &7Req-permission:'
+    message: '&cYou need permission: <perm> to use this item!'
+#  food:
+#    placeholder: '%player_food_level%'
+#    lore: '&c♦ &7Req-Food:'
+#    message: '&cEat something to use this!'
+#  req-wing:
+#    placeholder: '%player_allow_flight%'
+#    lore: '&c♦ &7Require Wings!'
+#    message: '&cOnly can use item if you can fly.'
+    
+# # ================= { RATE FORMAT } =================
+# <id>:
+#   price <type>                                     # blueprint's price
+#   display: <data>                                 # rating's display
+#   level-system:                                     # leveling option
+#     max: <amount>                               # max level
+#     base-exp: <amount>                        # exp require in item's level 0
+#     exp-modifier: <amount>                   # exp increase per level.
+#     stat-modifier: <amount>                   # stat increase per level.
+#     enchant-modifier: <amount>             # enchant increase per level.
+#     buff-modifier: <amount>                  # buff increase per level.
+# ===================================================
+# Item Leveling:
+# Exp to Level Up = base-exp + base-exp*level*exp_modifier
+# Stat calcualte: new-Stat = old-Stat + origin-Stat*stat-modifier
+#       origin-Stat = Stat of item's level is zero
+# Buff, Enchant calculate: Each (1/ buff-or-enchant-modifier) level add 1 enchant, buff level
+#
+# Display in lore: Ratings.lore + rates.<ID>.display
+# Default: default rating if rating isn't setted
+
+rate:
+  prefix: '&a◈ &7Rate:'
+  default: 'unknown'
+  rates:
+    unknown:
+      display: '&f&kunknown'
+      level_system:
+        max: 20
+        base_exp: 100
+        exp_modifier: 0.05                          #mean each level increase 100*0.05 = 5 require level
+        stat_modifier: 0.02                          #if item have 3 damage, each level increace 0.02*3 =0.06 damage
+        enchant_modifier: 0.1                     #mean each 1/0.1 = 10 level increase one enchant level
+        buff_modifier: 0.1                           #mean each 1/0.1 = 10  level increase one buff level
+    common: 
+      display: '&aCommon'
+      level_system:
+        max: 30
+        base_exp: 150
+        exp_modifier: 0.075
+        stat_modifier: 0.04
+        enchant_modifier: 0.1
+        buff_modifier: 0.1
+    rare:
+      display: '&9Rare'
+      level_system:
+        max: 40
+        base_exp: 200
+        exp_modifier: 0.1
+        stat_modifier: 0.06
+        enchant_modifier: 0.1
+        buff_modifier: 0.1
+    epic:
+      display: '&cEpic'
+      level_system:
+        max: 50
+        base_exp: 250
+        exp_modifier: 0.15
+        stat_modifier: 0.08
+        enchant_modifier: 0.1
+        buff_modifier: 0.2

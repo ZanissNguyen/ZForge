@@ -1,0 +1,73 @@
+recipes:
+  z_sword:
+    type: 'vertical'
+    level: 2
+    money: 1000
+    time: 5
+    material:
+    - primal_stone:3
+    - log_piece:1
+    - yummy_apple:8
+    - OBSIDIAN:10
+    - DIAMOND:30
+    description:
+    - '&7This recipe is for everyone'
+    blueprint:
+      require: true
+      can-buy: true
+      cost: 3000
+  hermet_boots:
+    type: 'frame'
+    level: 5
+    money: 555.5
+    time: 8
+    material:
+    - FEATHER:64
+    - OBSIDIAN:10
+    - DIAMOND:30
+    blueprint:
+      require: false
+      can-buy: false
+      cost: 0
+  fire_great_sword:
+    type: 'custom_ui_01'
+    level: 10
+    money: 999
+    time: 30
+    material:
+    - MAGMA_BLOCK:64
+    - BLAZE_POWDER:64
+    - LAVA_BUCKET:1
+    - MAGMA_CREAM:64
+    blueprint:
+      require: true
+      can-buy: true
+      cost: 999.99
+  obsidian_hammer:
+    type: 'horizontal'
+    level: 10.5
+    time: 30
+    money: 200
+    material:
+    - OBSIDIAN:64
+    - STICK:64
+    - COAL_BLOCK:64
+    - MAGMA_BLOCK:64
+    blueprint:
+      require: false
+      can-buy: true
+      cost: 5000
+  double_axe:
+    type: 'corner'
+    level: 10.45
+    money: 300
+    time: 35
+    material:
+    - IRON_INGOT:64
+    - STICK:64
+    - IRON_BLOCK:32
+    - STONE:64
+    blueprint:
+      require: true
+      can-buy: false
+      cost: 300
