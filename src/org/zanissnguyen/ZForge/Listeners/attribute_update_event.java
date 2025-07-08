@@ -79,7 +79,8 @@ public class attribute_update_event extends zevent
 			
 			@Override
 			public void run() {
-				if (picked.isSimilar(p.getInventory().getItemInMainHand()))
+				if (picked.isSimilar(p.getInventory().getItemInMainHand())
+						&& ZForge.main().a_utils.canUse(p, picked))
 				{
 					utils_attribute.updateAttribute(p);
 				}
@@ -140,6 +141,13 @@ public class attribute_update_event extends zevent
 			return;
 		}
 		
+		ItemStack item = p.getInventory().getItem(event.getNewSlot());
+		if (!ZForge.main().a_utils.canUse(p, item)) 
+		{
+			event.setCancelled(true);
+			return;
+		}
+		
 		Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 			
 			@Override
@@ -167,6 +175,13 @@ public class attribute_update_event extends zevent
 		if (!event.hasItem()) return;
 		if (event.getAction()==Action.RIGHT_CLICK_AIR || utils.isVanillaArmor(event.getItem().getType()))
 		{
+			ItemStack item = event.getItem();
+			if (!ZForge.main().a_utils.canUse(p, item)) 
+			{
+				event.setCancelled(true);
+				return;
+			}
+			
 			Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 				
 				@Override
@@ -204,6 +219,12 @@ public class attribute_update_event extends zevent
 				event.setCancelled(true);
 				return;
 			}
+			
+			if (!ZForge.main().a_utils.canUse(p, clicked)) 
+			{
+				event.setCancelled(true);
+				return;
+			}
 		}
 		
 		if ((event.getSlotType()==SlotType.ARMOR && (event.getAction()==InventoryAction.PLACE_ALL || event.getAction()==InventoryAction.PICKUP_ALL))
@@ -232,6 +253,12 @@ public class attribute_update_event extends zevent
 			if(event.getTargetEntity() instanceof Player)
 			{
 				Player p = (Player) event.getTargetEntity();
+				
+				if (!ZForge.main().a_utils.canUse(p, item)) 
+				{
+					event.setCancelled(true);
+					return;
+				}
 				
 				Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 					

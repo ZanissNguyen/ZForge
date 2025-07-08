@@ -14,6 +14,7 @@ import org.zanissnguyen.ZForge.System.utils_attribute;
 import org.zanissnguyen.ZForge.System.buff.Zbuff;
 import org.zanissnguyen.ZForge.System.buff.buff_manager;
 import org.zanissnguyen.ZForge.System.rate.zrate;
+import org.zanissnguyen.ZForge.System.requirement.requirement;
 import org.zanissnguyen.ZForge.System.stat.Zstat;
 import org.zanissnguyen.ZForge.Utils.utils;
 
@@ -39,11 +40,12 @@ public class zitem extends zobject {
 //	public int level;
 //	public int exp;
 	public String rate;
+	public List<String> requirements;
 	
 	public zitem(String id, String type, int data, String display, List<String> description, 
 			String item_type, String durability, List<String> enchants, List<String> flags, 
 			List<String> stats, List<String> buffs, boolean unbreak, String gems, String rate,
-			boolean leveling) {
+			boolean leveling, List<String> requirements) {
 		super(id, description);
 		this.type = type;
 		this.data = data;
@@ -59,6 +61,7 @@ public class zitem extends zobject {
 		this.rate = rate;
 		this.leveling = leveling;
 //		this.inv_gems = inv_gems;
+		this.requirements = requirements;
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -80,6 +83,7 @@ public class zitem extends zobject {
 			this.buffs = new ArrayList<>();
 			this.rate = "";
 			this.leveling = false;
+			this.requirements = new ArrayList<>();
 			return;
 		}
 		
@@ -134,7 +138,6 @@ public class zitem extends zobject {
 			this.buffs = buffs;
 			
 			// durability
-			
 			if (plugin.a_utils.isItemSetDurability(lore)!=-1)
 			{
 				this.durability = plugin.a_utils.getDurability(item);
@@ -182,6 +185,18 @@ public class zitem extends zobject {
 				gems++;
 			}
 			this.gems = gems+"";
+			
+			List<String> requirements = new ArrayList<>();
+			for (requirement req: a_utils.allRequirement())
+			{
+				if (a_utils.hasRequire(lore, req)!=-1)
+				{
+					String value = a_utils.getRequire(item, req);
+					requirements.add(req.id+":"+value);
+					lore.remove(a_utils.hasRequire(lore, req));
+				}
+			}
+			this.requirements = requirements;
 			
 			this.description = lore;
 		}
@@ -380,11 +395,35 @@ public class zitem extends zobject {
 					}
 				}
 			}
+			else if (s.equalsIgnoreCase("<requirement"))
+			{
+				for (String req_str: this.requirements)
+				{
+					String key = req_str.substring(0, req_str.indexOf(":"));
+					String value = req_str.substring(req_str.indexOf(":")+1);
+					
+					if (!a_utils.allRequirementID().contains(key))
+					{
+						errors.add(utils.color("&4+ requirements: &c"+key+"&4 is not a requirement"));
+						continue;
+					}
+					
+					requirement req = a_utils.getRequirementFromID(key);
+					
+					if (!req.validValue(value))
+					{
+						errors.add(utils.color("&4+ requirements: &c"+value+"&4 is not valid for &c"+key));
+						continue;
+					}
+					
+					lore.add(req.display + "&c "+value);
+				}
+			}
 			else if (s.equalsIgnoreCase("<stat>"))
 			{
 				for (String stat: stats)
 				{
-					String key = stat.substring(0, stat.indexOf(":"));;
+					String key = stat.substring(0, stat.indexOf(":"));
 					String value = stat.substring(stat.indexOf(":")+1);
 					
 					if (!Zstat.isStat(key))

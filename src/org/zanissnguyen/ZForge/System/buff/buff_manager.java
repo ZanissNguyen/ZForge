@@ -145,7 +145,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkItemInHand(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getItemInMainHand();
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -153,7 +153,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkItemInOffHand(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getItemInOffHand();
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -161,7 +161,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkHelmet(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getHelmet();
-		if (a_utils.canPlayerUseItem(p, item))
+		if (a_utils.canUse(p, item))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -169,7 +169,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkChestplate(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getChestplate();
-		if (a_utils.canPlayerUseItem(p, item))
+		if (a_utils.canUse(p, item))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -177,7 +177,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkLeggings(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getLeggings();
-		if (a_utils.canPlayerUseItem(p, item))
+		if (a_utils.canUse(p, item))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -185,7 +185,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkBoots(Player p, Zbuff buff)
 	{
 		ItemStack item = p.getInventory().getBoots();
-		if (a_utils.canPlayerUseItem(p, item))
+		if (a_utils.canUse(p, item))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -193,7 +193,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkRing(Player p, int slot, Zbuff buff)
 	{
 		ItemStack item = storage.getRingSlot(p, slot);
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -201,7 +201,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkArtifact(Player p, int slot, Zbuff buff)
 	{
 		ItemStack item = storage.getArtifactSlot(p, slot);
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -209,7 +209,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkBelt(Player p, Zbuff buff)
 	{
 		ItemStack item = storage.getBeltSlot(p);
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -217,7 +217,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkGauntlet(Player p, Zbuff buff)
 	{
 		ItemStack item = storage.getGauntletSlot(p);
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}
@@ -225,7 +225,7 @@ public class buff_manager extends BukkitRunnable
 	public static int checkNecklace(Player p, Zbuff buff)
 	{
 		ItemStack item = storage.getNecklaceSlot(p);
-		if (a_utils.canPlayerUseItem(p, item) && !utils.isVanillaArmor(item.getType()))
+		if (a_utils.canUse(p, item) && !utils.isVanillaArmor(item.getType()))
 			return a_utils.getBuffLevel(item, buff);
 		else return 0;
 	}

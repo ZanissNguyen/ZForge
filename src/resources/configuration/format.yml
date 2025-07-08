@@ -42,6 +42,8 @@ format:
     - '<leveling>'
     - '<durability>'
     - ''
+    - '<requirement>'
+    - ''
     - '<stat>'
     - ''
     - '<buff>'

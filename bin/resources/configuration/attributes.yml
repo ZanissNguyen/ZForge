@@ -78,18 +78,18 @@ buff:
 # ================= { CUSTOM REQUIREMENT FORMAT } =================
 # <id>:
 #   placeholder: <placeholder>                # see in placeholderAPI wiki then download ecloud
-#   lore: <lore>                                       # which display in item's lore
+#   display: <lore>                                       # which display in item's lore
 #   message: <message>                         # which display if user don't response requirement
 # ===================================================
 # Require a condition to use item
 
 requirement:
-  level: 
-    lore: '&c♦ &7Req-level:'
-    message: '&cYou need level <num> or higher to use this item!'
-  permission:
-    lore: '&c♦ &7Req-permission:'
-    message: '&cYou need permission: <perm> to use this item!'
+  req-level: 
+    display: '&c♦ &7Req-level:'
+    message: '&cYou need level <req> or higher to use this item!'
+  req-permission:
+    display: '&c♦ &7Req-permission:'
+    message: '&cYou need permission: <req> to use this item!'
 #  food:
 #    placeholder: '%player_food_level%'
 #    lore: '&c♦ &7Req-Food:'
@@ -117,7 +117,7 @@ requirement:
 #       origin-Stat = Stat of item's level is zero
 # Buff, Enchant calculate: Each (1/ buff-or-enchant-modifier) level add 1 enchant, buff level
 #
-# Display in lore: Ratings.lore + rates.<ID>.display
+# Display in lore: rate.prefix + rates.<ID>.display
 # Default: default rating if rating isn't setted
 
 rate:

@@ -84,9 +84,10 @@ public class zfile_items extends zfile
 		String gems = getGems(id);
 		String rate = getRate(id);
 		boolean leveling = getLeveling(id);
+		List<String> requirements = getRequirements(id);
 	
 		zitem result = new zitem(id, type, data, name, lore, item_type, durability, enchants, flags, stats, buffs, unbreakable, gems,
-				rate, leveling);
+				rate, leveling, requirements);
 		
 		return result;
 	}
@@ -106,11 +107,13 @@ public class zfile_items extends zfile
 		config.set(path.replace("<attr>", "flags"), toSave.flags);
 		config.set(path.replace("<attr>", "unbreakable"), toSave.unbreak);
 		config.set(path.replace("<attr>", "stats"), toSave.stats);
+		config.set(path.replace("<attr>", "buffs"), toSave.buffs);
 		config.set(path.replace("<attr>", "item-type"), toSave.item_type);
 		config.set(path.replace("<attr>", "durability"), toSave.durability);
 		config.set(path.replace("<attr>", "gems"), toSave.gems);
 		config.set(path.replace("<attr>", "rate"), toSave.rate);
 		config.set(path.replace("<attr>", "leveling"), toSave.leveling);
+		config.set(path.replace("<attr>", "requirements"), toSave.requirements);
 
 		this.save();
 		this.getItemList();
@@ -183,6 +186,13 @@ public class zfile_items extends zfile
 	private List<String> getBuffs(String id)
 	{
 		String path = "items."+id+".buffs";
+		FileConfiguration config = fileConfig;
+		if (config.getStringList(path)==null) return new ArrayList<>();
+		return config.getStringList(path);
+	}
+	private List<String> getRequirements(String id)
+	{
+		String path = "items."+id+".requirements";
 		FileConfiguration config = fileConfig;
 		if (config.getStringList(path)==null) return new ArrayList<>();
 		return config.getStringList(path);

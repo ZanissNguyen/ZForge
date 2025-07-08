@@ -18,6 +18,9 @@ import org.zanissnguyen.ZForge.System.buff.Zbuff;
 import org.zanissnguyen.ZForge.System.buff.buff_manager;
 import org.zanissnguyen.ZForge.System.object.zgem;
 import org.zanissnguyen.ZForge.System.rate.zrate;
+import org.zanissnguyen.ZForge.System.requirement.require_level;
+import org.zanissnguyen.ZForge.System.requirement.require_permission;
+import org.zanissnguyen.ZForge.System.requirement.requirement;
 import org.zanissnguyen.ZForge.System.stat.Zstat;
 import org.zanissnguyen.ZForge.System.stat.stat_manager;
 import org.zanissnguyen.ZForge.Utils.utils;
@@ -33,10 +36,20 @@ public class utils_attribute
 		buff_manager.updateBuffs(p);
 	}
 	
-	public boolean canPlayerUseItem(Player p, ItemStack i)
+	public boolean canUse(Player p, ItemStack i)
 	{
-		// TODO:
-		return true;
+		boolean result = true;
+				
+		// requirement
+		for (requirement req: allRequirement())
+		{
+			if (hasRequire(i, req)!=-1)
+			{
+				result &= req.checkRequire(p, i);
+			}
+		}
+		
+		return result;
 	}
 	
 	// type
@@ -903,5 +916,112 @@ public class utils_attribute
 			return got;
 		}
 		else return new zrate(zrate.getDefault());
+	}
+	
+	// requirement
+	public List<requirement> allRequirement()
+	{
+		List<requirement> result = new ArrayList<>();
+		result.add(new require_level());
+		result.add(new require_permission());
+		
+		return result;
+	}
+	
+	public List<String> allRequirementID()
+	{
+		List<String> result = new ArrayList<>();
+		for (requirement req: allRequirement())
+		{
+			result.add(req.id);
+		}
+		
+		return result;
+	}
+	
+	public requirement getRequirementFromID(String id)
+	{
+		for (requirement req: allRequirement())
+		{
+			if (req.id.equalsIgnoreCase(id)) return req;
+		}
+		return null;
+	}
+	
+	public String getRequire(ItemStack item, requirement req)
+	{
+		if (item==null) return null;
+		else
+		{
+			ItemMeta meta=null;
+			List<String> lore = new ArrayList<String>();
+			if (item.hasItemMeta()) 
+			{
+				meta = item.getItemMeta();
+				if (meta.getLore()!=null) lore = meta.getLore();
+				for (String s: lore)
+				{
+					if (s.startsWith(req.display))
+					{
+						return s.substring(s.lastIndexOf(" ")+1, s.length());
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+	public int hasRequire(List<String> lore, requirement req)
+	{
+		for (String s: lore)
+		{
+			if (s.startsWith(req.display))
+				return lore.indexOf(s);
+		}
+		return -1;
+	}
+	
+	public int hasRequire(ItemStack item, requirement req)
+	{
+		ItemMeta meta=null;
+		List<String> lore = new ArrayList<String>();
+		if (item.hasItemMeta()) 
+		{
+			meta = item.getItemMeta();
+			if (meta.getLore()!=null) lore = meta.getLore();
+			for (String s: lore)
+			{
+				if (s.startsWith(req.display))
+					return lore.indexOf(s);
+			}
+		}
+		return -1;
+	}
+	
+	public ItemStack setRequire(ItemStack item, String req_id, String value)
+	{
+		ItemStack result = item.clone();
+		requirement req = getRequirementFromID(req_id);
+		if (req==null) return result;
+		
+		ItemMeta meta=null;
+		List<String> resultLore = new ArrayList<String>();
+		if (item.getItemMeta()!=null) meta = result.getItemMeta();
+		if (meta.getLore()!=null) resultLore = meta.getLore();
+		
+		String lore = req.display;
+			
+		lore = utils.color(lore + (req.has_value ? ("&c "+value) : ""));
+		int index = hasRequire(result, req);
+		if (index<0) resultLore.add(lore);
+		else 
+		{
+			resultLore.remove(index);
+			resultLore.add(index, lore);
+		}
+		
+		meta.setLore(resultLore);
+		result.setItemMeta(meta);
+		return result;
 	}
 }

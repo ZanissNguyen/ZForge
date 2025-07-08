@@ -39,6 +39,9 @@ items:
     display: '&aZ Sword'
     data: 0
     leveling: true
+    requirements:
+    - 'req-level:2'
+    - 'req-permission:zforge.use.z_sword'
     rate: 'rare'
     item-type: 'sword'
     durability: '1000'
@@ -66,6 +69,8 @@ items:
     item-type: 'boots'
     display: '&4&lHermet Boots'
     durability: '450/500'
+    requirements:
+    - 'req-level:3'
     rate: 'rare'
     lore:
     - '&7Fast as &6The Flash!!'
@@ -85,6 +90,8 @@ items:
     data: 1
     item-type: 'great-sword'
     durability: '999/1000'
+    requirements:
+    - 'req-level:8'
     display: '&c&lFire Great Sword'
     lore:
     - '&cMythic sword can ignite enemy'
@@ -106,6 +113,8 @@ items:
     type: DIAMOND_AXE
     data: 1
     item-type: 'axe'
+    requirements:
+    - 'req-level:10'
     display: '&7&lDouble Axe'
     durability: '1000'
     rate: 'common'
@@ -127,6 +136,8 @@ items:
     type: DIAMOND_AXE
     data: 2
     item-type: 'hammer'
+    requirements:
+    - 'req-level:12'
     durability: '10000'
     display: '&5&lObsidian Hammer'
     leveling: true

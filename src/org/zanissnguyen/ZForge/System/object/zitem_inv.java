@@ -30,9 +30,9 @@ public class zitem_inv extends zitem
 	public zitem_inv(String id, String type, int data, String display, List<String> description, 
 			String item_type, String durability, List<String> enchants, List<String> flags, 
 			List<String> stats, List<String> buffs, boolean unbreak, List<String> inv_gems, String rate,
-			int level, int exp) {
+			int level, int exp, List<String> requirements) {
 		super(id, type, data, display, description, item_type, durability, enchants
-				, flags, stats, buffs, unbreak, "", rate, false);
+				, flags, stats, buffs, unbreak, "", rate, false, requirements);
 		this.inv_gems = inv_gems;
 		this.level = level;
 		this.exp = exp;

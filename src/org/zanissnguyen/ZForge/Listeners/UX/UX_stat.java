@@ -67,7 +67,7 @@ public class UX_stat extends zevent{
 			if (cursor!=null && cursor.getType()!=Material.AIR)
 			{
 				// is Valid Cursor for slot
-				if (isValidCursor(slot, cursor))
+				if (isValidCursor(p, slot, cursor))
 				{
 					// check if slot have item
 					if (isEmptySlot(click))
@@ -274,8 +274,10 @@ public class UX_stat extends zevent{
 		inv.setItem(52, ui.skill(p));
 	}
 	
-	private boolean isValidCursor(int rawSlot, ItemStack toCheck)
+	private boolean isValidCursor(Player p, int rawSlot, ItemStack toCheck)
 	{
+		if (!a_utils.canUse(p, toCheck)) return false;
+		
 		switch (rawSlot) 
 		{
 		case 4:

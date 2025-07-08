@@ -84,9 +84,10 @@ public class zfile_storage extends zfile
 		String rate = getRate(p, slot);
 		int level = getLevel(p, slot);
 		int exp = getExp(p, slot);
+		List<String> requirements = getRequirements(p, slot);
 	
 		zitem_inv result = new zitem_inv(p.getUniqueId()+"."+slot, type, data, name, lore, item_type, durability, enchants, flags
-				, stats, buffs, unbreakable, gems, rate, level, exp);
+				, stats, buffs, unbreakable, gems, rate, level, exp, requirements);
 		
 		return result;
 	}
@@ -106,12 +107,14 @@ public class zfile_storage extends zfile
 		config.set(path.replace("<attr>", "flags"), toSave.flags);
 		config.set(path.replace("<attr>", "unbreakable"), toSave.unbreak);
 		config.set(path.replace("<attr>", "stats"), toSave.stats);
+		config.set(path.replace("<attr>", "buffs"), toSave.buffs);
 		config.set(path.replace("<attr>", "item-type"), toSave.item_type);
 		config.set(path.replace("<attr>", "durability"), toSave.durability);
 		config.set(path.replace("<attr>", "gems"), toSave.inv_gems);
 		config.set(path.replace("<attr>", "rate"), toSave.rate);
 		config.set(path.replace("<attr>", "level"), toSave.level);
 		config.set(path.replace("<attr>", "exp"), toSave.exp);
+		config.set(path.replace("<attr>", "requirements"), toSave.requirements);
 		
 		this.save();
 	}
@@ -196,6 +199,11 @@ public class zfile_storage extends zfile
 	private List<String> getBuffs(Player p, String slot)
 	{
 		String path = "storage."+p.getUniqueId()+"."+slot+".buffs";
+		return getList(path);
+	}
+	private List<String> getRequirements(Player p, String slot)
+	{
+		String path = "storage."+p.getUniqueId()+"."+slot+".requirements";
 		return getList(path);
 	}
 	private Boolean getUnbreak(Player p, String slot)
