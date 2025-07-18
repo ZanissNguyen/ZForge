@@ -14,7 +14,7 @@ import org.zanissnguyen.ZForge.System.utils_attribute;
 import org.zanissnguyen.ZForge.System.buff.Zbuff;
 import org.zanissnguyen.ZForge.System.buff.buff_manager;
 import org.zanissnguyen.ZForge.System.rate.zrate;
-import org.zanissnguyen.ZForge.System.require.requirement;
+import org.zanissnguyen.ZForge.System.require.item_require;
 import org.zanissnguyen.ZForge.System.stat.Zstat;
 import org.zanissnguyen.ZForge.Utils.utils;
 
@@ -187,7 +187,7 @@ public class zitem extends zobject {
 			this.gems = gems+"";
 			
 			List<String> requirements = new ArrayList<>();
-			for (requirement req: a_utils.allRequirement())
+			for (item_require req: a_utils.allRequirement())
 			{
 				if (a_utils.hasRequire(lore, req)!=-1)
 				{
@@ -408,7 +408,7 @@ public class zitem extends zobject {
 						continue;
 					}
 					
-					requirement req = a_utils.getRequirementFromID(key);
+					item_require req = a_utils.getRequirementFromID(key);
 					
 					if (!req.validValue(value))
 					{

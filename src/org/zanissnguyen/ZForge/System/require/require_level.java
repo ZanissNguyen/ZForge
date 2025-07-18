@@ -3,7 +3,7 @@ package org.zanissnguyen.ZForge.System.require;
 import org.bukkit.entity.Player;
 import org.zanissnguyen.ZForge.ZForge;
 
-public class require_level extends requirement
+public class require_level extends item_require
 {
 	public require_level() {
 		super("req-level");

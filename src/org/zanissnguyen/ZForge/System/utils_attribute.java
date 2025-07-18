@@ -37,7 +37,7 @@ public class utils_attribute
 		boolean result = true;
 				
 		// requirement
-		for (requirement req: allRequirement())
+		for (item_require req: allRequirement())
 		{
 			if (hasRequire(i, req)!=-1)
 			{
@@ -915,9 +915,9 @@ public class utils_attribute
 	}
 	
 	// requirement
-	public List<requirement> allRequirement()
+	public List<item_require> allRequirement()
 	{
-		List<requirement> result = new ArrayList<>();
+		List<item_require> result = new ArrayList<>();
 		result.add(new require_level());
 		result.add(new require_permission());
 		
@@ -927,7 +927,7 @@ public class utils_attribute
 	public List<String> allRequirementID()
 	{
 		List<String> result = new ArrayList<>();
-		for (requirement req: allRequirement())
+		for (item_require req: allRequirement())
 		{
 			result.add(req.id);
 		}
@@ -935,16 +935,16 @@ public class utils_attribute
 		return result;
 	}
 	
-	public requirement getRequirementFromID(String id)
+	public item_require getRequirementFromID(String id)
 	{
-		for (requirement req: allRequirement())
+		for (item_require req: allRequirement())
 		{
 			if (req.id.equalsIgnoreCase(id)) return req;
 		}
 		return null;
 	}
 	
-	public String getRequire(ItemStack item, requirement req)
+	public String getRequire(ItemStack item, item_require req)
 	{
 		if (item==null) return null;
 		else
@@ -967,7 +967,7 @@ public class utils_attribute
 		return null;
 	}
 	
-	public int hasRequire(List<String> lore, requirement req)
+	public int hasRequire(List<String> lore, item_require req)
 	{
 		for (String s: lore)
 		{
@@ -977,7 +977,7 @@ public class utils_attribute
 		return -1;
 	}
 	
-	public int hasRequire(ItemStack item, requirement req)
+	public int hasRequire(ItemStack item, item_require req)
 	{
 		if (item==null || item.getType()==Material.AIR) return -1;
 		
@@ -999,7 +999,7 @@ public class utils_attribute
 	public ItemStack setRequire(ItemStack item, String req_id, String value)
 	{
 		ItemStack result = item.clone();
-		requirement req = getRequirementFromID(req_id);
+		item_require req = getRequirementFromID(req_id);
 		if (req==null) return result;
 		
 		ItemMeta meta=null;

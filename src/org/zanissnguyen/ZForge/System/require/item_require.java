@@ -4,14 +4,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.zanissnguyen.ZForge.ZForge;
 
-public abstract class requirement {
+public abstract class item_require {
 	
 	public String id;
 	public String display;
 	public String message;
 	public boolean has_value;
 	
-	public requirement(String id)
+	public item_require(String id)
 	{
 		this.id = id;
 		this.display = ZForge.main().file_attr.getString("requirement."+id+".display");
