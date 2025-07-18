@@ -127,6 +127,10 @@ public class cmd_zattribute extends zcmds
 				}
 				
 				item = a_utils.setRate(item, args[1]);
+				if (a_utils.hasLeveling(item)!=-1)
+				{
+					item = a_utils.setLevel(item, new leveling(1, 0, (new zrate(args[1]).base_exp)));
+				}
 				p.getInventory().setItemInMainHand(item);
 				String msg = plugin.file_loc.getAttribute("rate_set").replace("<r>", args[1]);
 				p.sendMessage(prefix + " " + msg);

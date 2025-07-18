@@ -85,8 +85,8 @@ public class UX_craft extends zevent
 						}
 						
 						utils.sendMessage(p, prefix +" "+ message
-								.replace("<item>", utils.getName(recipe.reward.convertToItemStack(true))
-								.replace("<t>", time+"")));
+								.replace("<item>", utils.getName(recipe.reward.convertToItemStack(true)))
+								.replace("<t>", time+""));
 						for (int i=1; i<=Math.min(3, time); i++)
 						{
 							Bukkit.getScheduler().runTaskLater(plugin, new Runnable() 

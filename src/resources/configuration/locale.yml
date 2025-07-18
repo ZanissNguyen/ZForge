@@ -159,6 +159,7 @@ forge:
     name: '&aRecipe Information'
     lore:
     - '  &7Level: <lvl>'
+    - '  &7Money: <money>'
     - '  &7Time: &e<time>s'
     - ''
     - '  <material_status>'

@@ -23,6 +23,9 @@ public class zfile_format extends zfile {
 		got.remove("<leveling>");
 		got.remove("<buff>");
 		got.remove("<stat>");
+		got.remove("<rate>");
+		got.remove("<requirement>");
+		got.remove("<gem>");
 		return ZForge.main().utils.standardListString(got);
 	}
 	

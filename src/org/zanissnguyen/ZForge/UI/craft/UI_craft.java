@@ -97,7 +97,7 @@ public class UI_craft extends UI implements UI_craftAPI
 			{
 				String colorCode = "";
 				double level = utils.getLevel(p);
-				level = utils.fixedDecimal(level, 2);
+				level = utils.fixedDecimal(level, plugin.file_cfg.getDigit());
 				double levelRequire = recipe.lvl;
 				
 				if (level<levelRequire)
@@ -109,6 +109,24 @@ public class UI_craft extends UI implements UI_craftAPI
 				{
 					colorCode = "&a";
 					lore.add(utils.color(s.replace("<lvl>", colorCode +level+"/"+levelRequire+" "+yesIcon)));
+				}
+			}
+			else if (s.contains("<money>"))
+			{
+				String colorCode = "";
+				double money = utils.getMoney(p);
+				money = utils.fixedDecimal(money, plugin.file_cfg.getDigit());
+				double moneyRequire = recipe.money;
+				
+				if (money<moneyRequire)
+				{
+					colorCode = "&c";
+					lore.add(utils.color(s.replace("<money>", colorCode +money+"/"+moneyRequire+" "+noIcon)));
+				}
+				else
+				{
+					colorCode = "&a";
+					lore.add(utils.color(s.replace("<money>", colorCode +money+"/"+moneyRequire+" "+yesIcon)));
 				}
 			}
 			else if (s.contains("<time>"))

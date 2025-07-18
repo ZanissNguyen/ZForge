@@ -300,20 +300,28 @@ public class zgem_event extends zevent {
 			@Override
 			public void run()
 			{
-				ItemStack new_cursor = cursor.clone();
-				int new_amount = cursor.getAmount()-1;
-				if (new_amount==0)
-				{
-					p.getInventory().clear(slot);
-				} else 
-				{
-					new_cursor.setAmount(new_amount);
-					p.setItemOnCursor(new_cursor);
+				if (cursor != null && cursor.getType() != Material.AIR) {
+
+					int new_amount = cursor.getAmount() - 1;
+
+					if (new_amount <= 0) {
+						p.getInventory().clear(slot);
+						p.setItemOnCursor(new ItemStack(Material.AIR));
+					} else {
+						ItemStack new_cursor = cursor.clone();
+						// Avoid setting invalid amount
+						new_cursor.setAmount(Math.min(new_amount, new_cursor.getMaxStackSize()));
+						p.setItemOnCursor(new_cursor);
+					}
 				}
-				
+
 				p.getInventory().setItem(slot, clicked);
-				if (complete) utils.playSound(Sound.BLOCK_ANVIL_USE, p, 1f, 1f);
-				else utils.playSound(Sound.ENTITY_ITEM_BREAK, p, 1f, 0.7f);
+
+				if (complete) {
+					utils.playSound(Sound.BLOCK_ANVIL_USE, p, 1f, 1f);
+				} else {
+					utils.playSound(Sound.ENTITY_ITEM_BREAK, p, 1f, 0.7f);
+				}
 			}
 		}, delay);
 	}

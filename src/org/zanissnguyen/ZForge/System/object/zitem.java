@@ -14,7 +14,7 @@ import org.zanissnguyen.ZForge.System.utils_attribute;
 import org.zanissnguyen.ZForge.System.buff.Zbuff;
 import org.zanissnguyen.ZForge.System.buff.buff_manager;
 import org.zanissnguyen.ZForge.System.rate.zrate;
-import org.zanissnguyen.ZForge.System.requirement.requirement;
+import org.zanissnguyen.ZForge.System.require.requirement;
 import org.zanissnguyen.ZForge.System.stat.Zstat;
 import org.zanissnguyen.ZForge.Utils.utils;
 
@@ -132,7 +132,7 @@ public class zitem extends zobject {
 					{
 						buffs.add(buff.getId()+":"+level);
 					}
-					lore.remove(plugin.a_utils.getBuffLevel(item, buff));
+					lore.remove(plugin.a_utils.hasBuff(lore,buff));
 				}
 			}
 			this.buffs = buffs;
@@ -395,7 +395,7 @@ public class zitem extends zobject {
 					}
 				}
 			}
-			else if (s.equalsIgnoreCase("<requirement"))
+			else if (s.equalsIgnoreCase("<requirement>"))
 			{
 				for (String req_str: this.requirements)
 				{
@@ -530,7 +530,7 @@ public class zitem extends zobject {
 			}
 			else if (s.equalsIgnoreCase("<gem>"))
 			{
-				if (gems.equalsIgnoreCase("")) continue;
+				if (gems.equalsIgnoreCase("") || gems.equalsIgnoreCase("0")) continue;
 				
 				if (gems.contains("~"))
 				{

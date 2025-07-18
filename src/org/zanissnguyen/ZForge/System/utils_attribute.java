@@ -14,15 +14,11 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.zanissnguyen.ZForge.ZForge;
 import org.zanissnguyen.ZForge.Files.database.zfile_storage;
-import org.zanissnguyen.ZForge.System.buff.Zbuff;
-import org.zanissnguyen.ZForge.System.buff.buff_manager;
+import org.zanissnguyen.ZForge.System.buff.*;
 import org.zanissnguyen.ZForge.System.object.zgem;
 import org.zanissnguyen.ZForge.System.rate.zrate;
-import org.zanissnguyen.ZForge.System.requirement.require_level;
-import org.zanissnguyen.ZForge.System.requirement.require_permission;
-import org.zanissnguyen.ZForge.System.requirement.requirement;
-import org.zanissnguyen.ZForge.System.stat.Zstat;
-import org.zanissnguyen.ZForge.System.stat.stat_manager;
+import org.zanissnguyen.ZForge.System.require.*;
+import org.zanissnguyen.ZForge.System.stat.*;
 import org.zanissnguyen.ZForge.Utils.utils;
 
 public class utils_attribute 
@@ -983,6 +979,8 @@ public class utils_attribute
 	
 	public int hasRequire(ItemStack item, requirement req)
 	{
+		if (item==null || item.getType()==Material.AIR) return -1;
+		
 		ItemMeta meta=null;
 		List<String> lore = new ArrayList<String>();
 		if (item.hasItemMeta()) 

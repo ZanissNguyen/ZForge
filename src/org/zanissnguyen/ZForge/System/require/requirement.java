@@ -1,4 +1,4 @@
-package org.zanissnguyen.ZForge.System.requirement;
+package org.zanissnguyen.ZForge.System.require;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
